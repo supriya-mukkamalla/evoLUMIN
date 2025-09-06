@@ -14,7 +14,7 @@ import { isAuthorizedUser } from "../middllewares/auth.js";
 const router = express.Router();
 
 router.post("/users/register", userregister);
-router.post("/users/login", userlogin);
+router.post("/users/login", userlogin); 
 router.get("/users/logout", isAuthorizedUser, userlogout);
 // router.post("/users/register/:id", sendEmail);
 router.get("/users/login/:id", getOneUser);

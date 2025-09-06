@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import Avatar from "../Avatar";
+// import { AuthContext } from "../authContext";
 import { AuthContext } from "../authContext";
 import "./Posts.css";
 import axios from "axios";

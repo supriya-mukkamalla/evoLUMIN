@@ -33,7 +33,7 @@ export const digitalTool = async (req, res) => {
     Additionally, provide the following fields in JSON format:
     1. "name": The name of the app.
     2. "description": A detailed description of the app's functionality in the ${language} language.
-    3. "steps": An array of step-by-step instructions starting from downloading or opening the app to accessing its features.
+    3. "steps": An array of step-by-step instructions starting from downloading or opening the app to accessing its features,it is just array of instructions not in form of array of objects.
     4. "rating": The rating of the app (if available).
     5. "link": The link to the app in the Play Store.
  The response should be in strict JSON format with  fields {name,description,steps,rating,link} 

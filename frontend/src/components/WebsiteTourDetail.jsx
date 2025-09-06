@@ -36,9 +36,9 @@ const WebsiteTourDetail = () => {
   if (loading) {
     return <Loader show={loading} />;
   }
-  // if (!tour) {
-  //   return  {loading && <Loader show={loading} />};
-  // }
+  if (!tour) {
+    return  loading && <Loader show={loading} />;
+  }
 
   // Choose a random screenshot for the thumbnail
   const thumbnailImage = tour.screenshots[0] || "";
@@ -112,7 +112,7 @@ const WebsiteTourDetail = () => {
         {tour.instructions.map((step, index) => (
           <div key={index} className="step-instructions">
             <h3>Step {index + 1}</h3>
-            <p>{step.instruction || "No additional details provided."}</p>
+            <p>{step || "No additional details provided."}</p>
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import "./ProfileDropdown.css";
-import { AuthContext } from "../components/authContext";
+import { AuthContext } from "./authContext";
 import logo from "../assets/logo.png";
 import axios from "axios";
 const Navbar = () => {
@@ -13,36 +13,71 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const avatarLetter = userInfo?.user?.email?.charAt(0).toUpperCase() || "";
-  const handleLogout = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:3000/api/v1/users/logout",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token}`, // Include the token in the Authorization header
-          },
-        }
-      );
-
-      console.log(response);
-      if (response.data.sucess) {
-        // Clear token and user info (if managed in context or localStorage)
-        // Example: context-specific clear method
-        // clearUserInfo();
-        clearContext();
-        localStorage.removeItem("token");
-        localStorage.removeItem("token");
-        setAuthState({ token: null, userInfo: null });
-        navigate("/auth"); // Redirect to login page
-      } else {
-        console.error("Failed to log out:", response.statusText);
-      }
-    } catch (error) {
-      console.error("An error occurred during logout:", error);
+ const handleLogout = async () => {
+  try {
+    const token = localStorage.getItem("token");
+        if (!token) {
+      // No token found, user is already logged out
+      clearContext();
+      setAuthState({ token: null, userInfo: null });
+      navigate("/auth");
+      return;
     }
-  };
+    const response = await axios.get(
+      "http://localhost:3000/api/v1/users/logout",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log(response);
+    if (response.data.success) {
+      clearContext();
+      localStorage.removeItem("token");
+      setAuthState({ token: null, userInfo: null });
+      navigate("/auth");
+    } else {
+      console.error("Failed to log out:", response.statusText);
+    }
+  } catch (error) {
+    console.error("An error occurred during logout:", error);
+  }
+};
+
+
+  // const handleLogout = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "http://localhost:3000/api/v1/users/logout",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `${token}`, // Include the token in the Authorization header
+  //         },
+  //       }
+  //     );
+
+  //     console.log(response);
+  //     if (response.data.sucess) {
+  //       // Clear token and user info (if managed in context or localStorage)
+  //       // Example: context-specific clear method
+  //       // clearUserInfo();
+  //       clearContext();
+  //       localStorage.removeItem("token");
+  //       localStorage.removeItem("token");
+  //       setAuthState({ token: null, userInfo: null });
+  //       navigate("/auth"); // Redirect to login page
+  //     } else {
+  //       console.error("Failed to log out:", response.statusText);
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred during logout:", error);
+  //   }
+  // };
 
   // Voice navigation setup
   useEffect(() => {
@@ -151,9 +186,6 @@ const Navbar = () => {
                   <p>{userInfo.user.email}</p>
                 </div>
                 <div className="dropdown-links">
-                  <Link to="/my-services" className="dropdown-item">
-                    My Services
-                  </Link>
                   <Link to="/profile" className="dropdown-item">
                     View Profile
                   </Link>

@@ -3,7 +3,7 @@ import Avatar from "../Avatar";
 import { AuthContext } from "../authContext";
 import "./Posts.css";
 import axios from "axios";
-import PostModal from "./PostModal";
+import PostModal from "./postModal";
 import { uploadFile } from "../../upload";
 import CommentTypeModal from "./commentModal";
 import LikeButton from "./LikeButton";

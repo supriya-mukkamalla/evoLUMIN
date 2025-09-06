@@ -91,7 +91,7 @@ export const addMediatorToCrop = async (req, res) => {
     // Send a message to the user using Twilio
     if (user.phone) {
       await client.messages.create({
-        body: `A new mediator has been added to your crop: ${cropTitle}`,
+        body: `A new mediator has been added to your crop: ${cropTitle} and his number is ${id}`,
         from: "+18647148091", // Replace with your Twilio phone number
         to: `+91 ${user.phone}`, // Ensure phone number is in correct format
       });

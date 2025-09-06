@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../env" });
 import ErrorHandler from "../middllewares/error.js";
 import twilio from "twilio";
+
 export const userregister = catchAsyncError(async (req, res, next) => {
   const {
     name,
@@ -50,6 +51,7 @@ export const userregister = catchAsyncError(async (req, res, next) => {
   });
   sendTokenuser(user, 200, res, "success");
 });
+
 export const userlogin = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -71,13 +73,13 @@ export const userlogin = catchAsyncError(async (req, res, next) => {
 export const userlogout = catchAsyncError(async (req, res, next) => {
   console.log("req");
   res
-    .status(201)
+    .status(200)
     .cookie("token", "", {
       httpOnly: true,
       expires: new Date(Date.now()),
     })
     .json({
-      sucess: true,
+      success: true,
       message: "user loggedout successfully",
     });
 });

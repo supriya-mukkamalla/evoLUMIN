@@ -214,6 +214,14 @@ body {
   transition: box-shadow 0.3s ease;
 }
 
+
+.text-left,
+.text-right,
+.video-left,
+.video-right {
+  padding: 10px;
+}
+
 /* Video Containers */
 .video-left,
 .video-right {
@@ -231,9 +239,7 @@ video {
   transition: transform 0.3s ease;
 }
 
-video:hover {
-  transform: scale(1.08); /* Slight zoom on hover */
-}
+ 
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -278,10 +284,39 @@ video:hover {
     text-align: center;
   }
 
-  .text-left,
-  .text-right,
-  .video-left,
-  .video-right {
-    padding: 10px;
-  }
+
 }
+
+
+.text-left,
+.text-right,
+.image-left,
+.image-right {
+  padding: 10px;
+}
+
+/* Image Containers */
+.image-left,
+.image-right {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Image Styling */
+img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  
+  transition: transform 0.3s ease; /* Animation for smooth effects */
+}
+
+.text-left,
+.text-right,
+.image-left,
+.image-right {
+  max-width: 100%;
+  padding: 10px;
+}
+

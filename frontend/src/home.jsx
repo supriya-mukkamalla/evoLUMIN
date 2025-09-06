@@ -56,32 +56,29 @@ export default function Home() {
 
       {/* Section 2: Agro Connect */}
       <section className="section agro-connect">
-        <div className="section-content">
-          <div className="text-left">
-            <h2>Agro Connect</h2>
-            <p>
-              Agro Connect is your gateway to connecting with experts, fellow
-              farmers, and customers.
-            </p>
-          </div>
-          <div className="video-right">
-            <video controls>
-              <source src="/path/to/video1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </section>
+  <div className="section-content">
+    <div className="text-left">
+      <h2>Agro Connect</h2>
+      <p>
+        Agro Connect is your gateway to connecting with experts, fellow
+        farmers, and customers.
+      </p>
+    </div>
+    <div className="image-right">
+      <img src="https://agro-tech-ai.vercel.app/assets/hero-izR8K3Ey.png" alt="Agro Connect Preview" />
+    </div>
+  </div>
+</section>
+ 
 
       {/* Section 3: Digital Tools */}
       <section className="section digital-tools">
         <div className="section-content">
-          <div className="video-left">
-            <video controls>
-              <source src="/path/to/video2.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+       
+          <div className="image-left">
+      <img src=" https://agro-tech-ai.vercel.app/assets/img2-C6XQY0YY.jpg" />
+    </div>
+      
           <div className="text-right">
             <h2>Digital Tools</h2>
             <p>
@@ -102,24 +99,19 @@ export default function Home() {
               techniques with advanced tools.
             </p>
           </div>
-          <div className="video-right">
-            <video controls>
-              <source src="/path/to/video3.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <div className="image-right">
+      <img src="https://agro-tech-ai.vercel.app/assets/prediction-DnbP8nX0.webp" alt="Agro Connect Preview"   />
+    </div>
         </div>
       </section>
 
       {/* Section 5: Agri Market */}
       <section className="section agro-market">
         <div className="section-content">
-          <div className="video-left">
-            <video controls>
-              <source src="/path/to/video4.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div className="image-right">
+       
+      <img src="https://agro-tech-ai.vercel.app/assets/img1-CMroYCiS.jpg" alt="Agro Connect Preview" />
+    </div>
           <div className="text-right">
             <h2>Agri Market</h2>
             <p>

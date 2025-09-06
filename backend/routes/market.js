@@ -7,7 +7,7 @@ import { addMediatorToCrop, getAllCropsForSaleByType } from "../controller/Retai
 router.post("/postCrop/:id", async (req, res) => {
   try {
     const { id } = req.params; // Use the ID from the route parameters
-    const { title, description, quantity, images, video } = req.body; // Extract crop data from the request body
+    const { title, description, quantity, images, video,price } = req.body; // Extract crop data from the request body
 
     // Decode the token to get the user ID
     const decoded = jwt.verify(id, process.env.JWT_SECRET_KEY);
@@ -29,6 +29,7 @@ router.post("/postCrop/:id", async (req, res) => {
       quantity,
       images,
       video,
+      price
     };
     console.log("new", newCrop);
     user.cropsForSale.push(newCrop);

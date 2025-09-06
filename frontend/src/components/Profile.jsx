@@ -52,18 +52,7 @@ const Profile = () => {
           <p>Crop Type: {crop || "Not Specified"}</p>
           <p>Production Stage: {productionStage || "Not Specified"}</p>
           <p>District: {district || "Not Specified"}</p>
-          {/* {cropsForSale && cropsForSale.length > 0 && (
-            <div>
-              <h4>Crops Available for Sale</h4>
-              <ul>
-                {cropsForSale.map((crop, index) => (
-                  <li key={index}>
-                    {crop.name} - {crop.quantity} units
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )} */}
+          
         </div>
       </div>
 
